@@ -1,0 +1,18 @@
+#error-view {
+    overflow-y: hidden;
+    height: calc(100vh - 60px);
+    position: relative;
+    div {
+        padding: 0 5rem;
+        span {
+            margin-top: 1rem;
+            display: block;
+        }
+        button {
+            margin-top: 1.5rem;
+        }
+    }
+    img {
+        max-width: 1000px;
+    }
+}

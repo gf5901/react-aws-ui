@@ -1,0 +1,533 @@
+@import "./palette.scss";
+
+nav.dh-tabs > a {
+	&:hover {
+		text-decoration: none;
+	}
+	&.active {
+		color: $accent;
+	}
+}
+body.dark-mode nav.dh-tabs {
+	box-shadow: inset 0 -1px $lighten_15;
+	> a {
+		color: $lighten_50;
+		&.active {
+			color: $lighten_87;
+			box-shadow: inset 0 -3px $dm_text_primary_lightened;
+		}
+		&:hover {
+			color: $lighten_75;
+			box-shadow: inset 0 -1px $lighten_33;
+		}
+	}
+}
+
+.dh-table {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	header {
+		display: none;
+	}
+	main {
+		table {
+			width: 100%;
+		}
+		th {
+			color: $textblack;
+			font-size: 14px;
+			font-weight: 500;
+		}
+		tbody tr {
+			border-top: 1px solid rgba(0, 0, 0, 0.05);
+		}
+	}
+}
+body.dark-mode .dh-table {
+	border-color: $lighten_15;
+	main {
+		th {
+			color: $lighten_75;
+		}
+		tbody tr {
+			border-color: $lighten_15;
+		}
+	}
+}
+.Input-container {
+	width: 100%;
+	position: relative;
+	border: 3px solid transparent;
+	background: #f5f5f5;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: 0.3s;
+	&:hover:not(.read-only) {
+		background: rgba(0, 0, 0, 0.05);
+	}
+	&.read-only,
+	&.read-only.has-data {
+		background: white;
+		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+		> label,
+		> input {
+			color: rgba(0, 0, 0, 0.5);
+		}
+	}
+	&.select-input {
+		overflow: visible;
+		&.has-data label {
+			font-size: 12px;
+			top: 4px;
+			color: rgba(0, 0, 0, 0.87);
+			z-index: 1;
+		}
+	}
+}
+.Input-container:focus-within.read-only {
+	border-color: transparent;
+}
+.Input-container > input {
+	background-color: rgba(0, 0, 0, 0);
+	padding: 18px 10px 6px;
+	border: none;
+	width: 100%;
+	font-size: 14px;
+	position: relative;
+	z-index: 1;
+	border-radius: 0;
+}
+.Input-container > label {
+	position: absolute;
+	top: 11px;
+	left: 10px;
+	transition: 500ms;
+	font-size: 14px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.33);
+}
+.Input-container + .Input-container {
+	margin-top: 1rem;
+}
+.Input-container + .Input-container {
+	margin-top: 1rem;
+}
+body.dark-mode .Input-container {
+	background: $lighten_10;
+	&.read-only.has-data {
+		background: none;
+		box-shadow: inset 0 0 0 1px $lighten_10;
+		> input,
+		> label {
+			color: $lighten_50;
+		}
+	}
+	&:hover:not(.read-only) {
+		background: $lighten_15;
+	}
+	&:focus-within:not(.readonly) {
+		border-color: $primary_lightened_10;
+		background: $primary_30;
+		> label {
+			color: $primary_lightened_20;
+		}
+	}
+	> input {
+		color: $lighten_75;
+	}
+	> label {
+		color: $lighten_50;
+	}
+}
+.Input-container > textarea {
+	background-color: rgba(0, 0, 0, 0);
+	padding: 18px 10px 6px;
+	border: none;
+	width: 100%;
+	font-size: 14px;
+	position: relative;
+	z-index: 1;
+	border-radius: 0;
+	outline: none;
+}
+.Input-container.has-data > textarea ~ label,
+.Input-container > textarea:focus ~ label {
+	font-size: 12px;
+	top: 4px;
+	color: rgba(0, 0, 0, 0.87);
+}
+body.dark-mode .Input-container > textarea {
+	background: none;
+	& ~ label {
+		color: $lighten_50;
+	}
+}
+.dh-badge {
+	display: inline-block;
+	padding: 0.1rem 0.5rem;
+	font-size: 12px;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+* + .dh-badge {
+	margin-left: 0.25rem;
+}
+*.active .dh-badge {
+	background: $primary_light;
+	box-shadow: none;
+}
+body.dark-mode {
+	*.active .dh-badge {
+		background: $primary_20;
+		box-shadow: inset 0 0 0 1px $primary_50;
+	}
+	.dh-badge {
+		box-shadow: inset 0 0 0 1px $lighten_15;
+	}
+}
+.dh-button {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.dh-button.type-primary {
+	background: $accent;
+}
+.dh-button.type-primary:hover:not(.disabled) {
+	background: $primary_darkened;
+}
+body.dark-mode {
+	.dh-button.type-primary:hover:not(.disabled) {
+		background: $primary_lightened_10;
+	}
+	.dh-button.type-secondary {
+		color: $lighten_63;
+		box-shadow: inset 0 0 0 1px $lighten_33;
+		&:hover:not(.disabled) {
+			color: $lighten_87;
+			box-shadow: inset 0 0 0 1px $lighten_50;
+		}
+	}
+	.dh-button.type-tertiary {
+		color: $lighten_63;
+		&:hover {
+			background: $lighten_05;
+			color: $lighten_87;
+		}
+	}
+}
+.dh-toggle-input.toggle-on .dh-toggle-input-circle-container {
+	background: $accent;
+}
+body.dark-mode {
+	.dh-toggle-input {
+		.dh-toggle-input-circle-container {
+			background: transparent;
+			box-shadow: inset 0 0 0 1px $lighten_15;
+			.dh-toggle-input-circle {
+				background: $lighten_33;
+				box-shadow: none;
+			}
+		}
+		&.toggle-on .dh-toggle-input-circle-container {
+			background: $primary_50;
+			.dh-toggle-input-circle {
+				background: $lighten_50;
+			}
+		}
+	}
+}
+.dh-table-empty-message {
+	padding: 1rem;
+}
+.modal-overlay {
+	@keyframes overlay {
+		from {
+			background-color: rgba(0, 0, 0, 0);
+		}
+		to {
+			background-color: rgba(30, 0, 0, 0.4);
+			backdrop-filter: blur(3px);
+		}
+	}
+	&.false {
+		z-index: -1;
+	}
+}
+.modal-dialogue {
+	background: white;
+	top: 0;
+	width: auto;
+	border-radius: 10px;
+	height: auto;
+	@keyframes dialogue {
+		from {
+			opacity: 0;
+			transform: scale(0.95);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+}
+.modal-dialogue-header {
+	padding: 1.5rem 2rem;
+	height: auto;
+	border: 0;
+	font-family: Poppins;
+	font-weight: 600;
+	font-size: 32px;
+	color: $textblack;
+	button {
+		font-size: 24px;
+		margin-left: 1.5rem;
+	}
+}
+.modal-dialogue-children {
+	padding: 0 2rem 1.5rem;
+	height: auto;
+}
+.modal-dialogue-children > footer {
+	display: flex;
+	gap: 1rem;
+	justify-content: flex-end;
+	margin-top: 2rem;
+}
+#profile-menu {
+	top: 4rem;
+}
+#profile-menu > li > a {
+	background: white;
+}
+#profile-link {
+	margin: 0;
+}
+#profile-link > a {
+	border-color: #7676f8;
+}
+.monospace {
+	font-family: monospace;
+}
+
+div.dh-dropdown {
+	&__control {
+		border: 0;
+		background: transparent;
+		height: 46px;
+	}
+	&__single-value {
+		margin-top: 6px;
+	}
+	&__menu {
+		z-index: 3;
+	}
+}
+
+.inline-select-one {
+	> div {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+		gap: 1rem;
+		> div {
+			padding: 0.5rem;
+			border-radius: 5px;
+			width: 100%;
+			text-align: center;
+			box-shadow: inset 0 0 0 1px $darken_10;
+			cursor: pointer;
+			&:hover {
+				box-shadow: inset 0 0 0 1px $darken_33;
+			}
+			&.selected {
+				box-shadow: inset 0 0 0 2px $accent;
+				color: $accent;
+				background-color: $primary_20;
+			}
+		}
+	}
+}
+
+.Input-container.file-upload > input {
+	padding-top: 26px;
+}
+
+.big-option-chooser {
+	display: flex;
+	gap: 1rem;
+	> div {
+		padding: 2rem;
+		text-align: center;
+		border-radius: 10px;
+		box-shadow: inset 0 0 0 1px $darken_05;
+		min-width: 280px;
+		cursor: pointer;
+		&:hover {
+			box-shadow: inset 0 0 0 3px $primary_50;
+		}
+		> strong {
+			font-weight: 500;
+			font-size: 18px;
+			color: $darken_75;
+			+ div {
+				font-size: 12px;
+				margin-top: 0.5rem;
+			}
+		}
+	}
+}
+
+.Input-container + .dh-select-one {
+	margin-top: 1rem;
+}
+.dh-select-one {
+	display: flex;
+	gap: 1rem;
+	> div {
+		padding: 0.5rem 1rem;
+		font-size: 14px;
+		background: $darken_05;
+		border-radius: 5px;
+		width: 100%;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
+		&:hover {
+			box-shadow: inset 0 0 0 2px $darken_10;
+		}
+		&.selected {
+			background: $primary_20;
+			box-shadow: inset 0 0 0 2px $accent;
+			color: $accent;
+		}
+	}
+	+ .Input-container {
+		margin-top: 1rem;
+	}
+}
+
+body.dark-mode {
+	.nav-item.active {
+		color: $lighten_87;
+	}
+	.nav-item:hover {
+		color: $lighten_87;
+	}
+	.version-select__control {
+		background: none;
+		border-color: $lighten_33;
+		&:hover {
+			border-color: $lighten_63;
+		}
+		.version-select__single-value {
+			color: $lighten_50;
+		}
+	}
+	.version-select__menu {
+		background: $dm_background;
+	}
+	#public-api-view
+		> header
+		.title-line
+		> div
+		.version-select__option--is-focused {
+		background: $primary_30;
+		color: $lighten_75;
+	}
+	.dh-select-one {
+		> div {
+			background: $lighten_10;
+			&.selected {
+				background: $primary_20;
+				color: $primary_lightened_20;
+			}
+		}
+	}
+	.big-option-chooser {
+		> div {
+			box-shadow: inset 0 0 0 1px $lighten_10;
+			&:hover {
+				box-shadow: inset 0 0 0 2px $accent;
+			}
+		}
+		strong {
+			color: $lighten_75;
+		}
+	}
+	.modal-dialogue {
+		position: relative;
+		background: #222;
+		.modal-dialogue-header {
+			position: relative;
+			z-index: 1;
+			color: $lighten_75;
+			.modal-close-btn {
+				color: $lighten_75;
+			}
+		}
+		.modal-dialogue-children {
+			position: relative;
+			z-index: 1;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-radius: 10px;
+			border: 1px solid transparent;
+			background: linear-gradient(rgba(255, 255, 255, 0.2), transparent)
+				border-box; /*3*/
+			-webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box,
+				linear-gradient(#fff 0 0);
+			-webkit-mask-composite: destination-out; /*5'*/
+			mask-composite: exclude; /*5*/
+		}
+	}
+	.inline-select-one {
+		> div {
+			> div {
+				box-shadow: inset 0 0 0 1px $darken_10;
+				&:hover {
+					box-shadow: inset 0 0 0 1px $darken_33;
+				}
+				&.selected {
+					box-shadow: inset 0 0 0 2px $accent;
+					color: $lighten_75;
+					background-color: $primary_20;
+				}
+			}
+		}
+	}
+	.Input-container.select-input {
+		> label {
+			color: $lighten_50;
+		}
+	}
+	div.dh-dropdown__single-value {
+		color: $lighten_75;
+	}
+	div.dh-dropdown__control:hover,
+	div.dh-dropdown__control--is-focused {
+		border: 0;
+		box-shadow: none;
+	}
+	div.dh-dropdown__menu {
+		background: $dm_background;
+	}
+	div.dh-dropdown__option--is-focused {
+		background: $primary_50;
+		color: $lighten_75;
+	}
+	div.dh-dropdown__option--is-selected {
+		background: $primary_lightened_10;
+		color: white;
+	}
+	span.dh-dropdown__indicator-separator {
+		background-color: $lighten_15;
+	}
+}

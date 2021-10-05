@@ -1,0 +1,23 @@
+#not-found-view {
+	overflow-y: hidden;
+	height: calc(100vh - 60px);
+	position: relative;
+	div {
+		padding: 0 5rem;
+		position: relative;
+		z-index: 1;
+		span {
+			margin-top: 1rem;
+			display: block;
+		}
+		button {
+			margin-top: 1.5rem;
+		}
+	}
+	img {
+		top: -6rem;
+		z-index: 0;
+		position: absolute;
+		max-width: 1000px;
+	}
+}

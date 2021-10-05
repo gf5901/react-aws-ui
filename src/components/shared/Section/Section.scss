@@ -1,0 +1,18 @@
+@import '../../../palette.scss';
+
+section.dh-section {
+	> header > h3 {
+		font-family: Roboto;
+		color: #2e2e2e;
+		font-size: 18px;
+		margin-bottom: 1rem;
+	}
+	+ section.dh-section {
+		margin-top: 2rem;
+	}
+}
+body.dark-mode section.dh-section {
+	> header > h3 {
+		color: $lighten_63;
+	}
+}

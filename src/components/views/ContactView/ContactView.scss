@@ -1,0 +1,20 @@
+.contact-view {
+	overflow-y: hidden;
+	height: calc(100vh - 60px);
+	position: relative;
+	> div {
+		padding: 0 5rem;
+		position: relative;
+		z-index: 1;
+		span {
+			margin-top: 1rem;
+			display: block;
+		}
+		button {
+			margin-top: 1.5rem;
+		}
+	}
+	form {
+		margin-top: 2rem;
+	}
+}

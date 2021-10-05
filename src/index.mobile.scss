@@ -1,0 +1,66 @@
+@import "./palette.scss";
+
+@media only screen and (max-width: 768px) {
+	.modal-dialogue {
+		width: 100vw;
+	}
+	.modal-dialogue-header {
+		font-size: 20px;
+	}
+
+	nav.dh-tabs {
+		overflow-x: auto;
+		padding-right: 2rem;
+		white-space: nowrap;
+	}
+	nav.dh-vert-menu {
+		position: fixed;
+		bottom: 0;
+		height: 60px;
+		z-index: 1;
+		> ul {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			li + li {
+				margin: 0;
+			}
+			> li > div > ul {
+				display: flex;
+				gap: 0.25rem;
+				> li > div,
+				> li > a {
+					flex-direction: column;
+					gap: 0;
+					line-height: 2;
+					> div {
+						height: 20px;
+					}
+				}
+			}
+			li.dh-vert-menu-item > a,
+			li.dh-vert-menu-item > div {
+				font-size: 11px;
+			}
+		}
+		li.dh-vert-menu-group > label {
+			display: none;
+		}
+	}
+
+	.nav-menu-btn {
+		border-color: rgba(255, 255, 255, 0.5);
+		color: rgba(255, 255, 255, 0.5);
+		&:hover {
+			background: none;
+		}
+	}
+	body.dark-mode {
+		.nav.light .nav-menu.open {
+			background: $primary_15;
+			> a {
+				color: $lighten_75;
+			}
+		}
+	}
+}

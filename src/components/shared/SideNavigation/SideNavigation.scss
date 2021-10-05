@@ -1,0 +1,118 @@
+@import "../../../palette.scss";
+
+.side-navigation {
+	background: $primary;
+	color: white;
+	height: calc(100vh);
+	overflow-y: auto;
+	> header {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.5rem 1rem;
+		font-size: 20px;
+		font-weight: 500;
+		img {
+			width: 32px;
+		}
+	}
+	> ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		> li {
+			border-top: 1px solid $lighten_10;
+			> header {
+				padding: 1rem 1rem 0.5rem;
+				font-size: 10px;
+				color: $lighten_50;
+				text-transform: uppercase;
+				letter-spacing: 0.05rem;
+			}
+			> ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				> li {
+					> a {
+						text-decoration: none;
+						display: flex;
+						gap: 1rem;
+						padding: 1rem;
+						font-size: 14px;
+						align-items: center;
+						color: $lighten_75;
+						filter: saturate(0);
+						&:not(:first-child) {
+							color: rgba(0, 0, 0, 0.4);
+						}
+					}
+					.svgInline {
+						font-size: 0;
+					}
+					svg {
+						width: 20px;
+						height: 20px;
+						fill: $lighten_75;
+					}
+					&:hover {
+						> a {
+							color: white;
+						}
+						svg {
+							fill: white;
+						}
+					}
+					&.selected {
+						> a {
+							color: $accent;
+							background: $primary_darkened;
+							filter: saturate(1);
+						}
+						svg {
+							fill: $accent;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+body.dark-mode .side-navigation {
+	border-color: $lighten_10;
+	> section {
+		> header {
+			border-color: $lighten_10;
+		}
+		ul {
+			li {
+				border-color: $lighten_10;
+				header {
+					color: $lighten_75;
+				}
+				ul {
+					li {
+						color: $lighten_33;
+						transition: 0.2s;
+					}
+					li:hover {
+						color: $lighten_63;
+						background: $lighten_05;
+					}
+					li.selected {
+						background: $primary_40;
+						color: $lighten_87;
+						span {
+							background: none !important;
+							box-shadow: inset 0 0 0 1px $lighten_87;
+							color: $lighten_87;
+						}
+						&:before {
+							background: $lighten_87;
+						}
+					}
+				}
+			}
+		}
+	}
+}

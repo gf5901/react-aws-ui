@@ -1,0 +1,52 @@
+.input-container {
+	width: 100%;
+	position: relative;
+	border: 3px solid rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	overflow: hidden;
+	transition: 0.3s;
+	&:focus-within:not(.readonly) {
+		border-color: #007bff;
+	}
+	&.readonly {
+		background: #f5f5f5;
+	}
+	&.readonly > label,
+	&.has-data.readonly > label,
+	&.readonly > input {
+		color: rgba(0, 0, 0, 0.5);
+	}
+	> input {
+		background-color: rgba(0, 0, 0, 0);
+		padding: 22px 10px 6px;
+		border: none;
+		width: 100%;
+		font-size: 18px;
+		position: relative;
+		z-index: 1;
+		border-radius: 0;
+		&:focus {
+			outline: none;
+		}
+	}
+	> label {
+		position: absolute;
+		top: 12px;
+		left: 10px;
+		transition: 500ms;
+		font-weight: 700;
+		color: rgba(0, 0, 0, 0.33);
+	}
+}
+
+.input-container + .input-container {
+	margin-top: 40px;
+}
+
+.input-container.has-data > input + label,
+.input-container > input:focus + label {
+	font-size: 12px;
+	top: 4px;
+	color: rgba(0, 0, 0, 0.87);
+	z-index: 1;
+}

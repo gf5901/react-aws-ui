@@ -1,0 +1,275 @@
+@import "../palette.scss";
+
+ol,
+ul {
+	margin-bottom: 0;
+}
+
+strong {
+	font-weight: 600;
+}
+
+html {
+	background: white;
+}
+
+html body {
+	font-family: "Poppins", sans-serif;
+	color: #666;
+	margin: 0;
+}
+
+label {
+	margin: 0;
+}
+
+body {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $darken_75;
+	}
+}
+
+a {
+	color: $accent;
+}
+
+textarea {
+	background: $primary_light;
+	padding: 0.5rem 0.75rem;
+	border-radius: 5px;
+}
+
+.app {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+}
+.app > main {
+	height: 100vh;
+	overflow-y: auto;
+	> section,
+	> div > section {
+		> header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem 1.5rem;
+			margin-top: 1px;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			font-family: "Poppins";
+			> div > div:first-child {
+				font-size: 12px;
+				img {
+					max-height: 17.5px;
+					border-radius: 9px;
+					margin-right: 0.5rem;
+				}
+				svg {
+					margin-right: 0.5rem;
+				}
+			}
+			h1 {
+				color: $textblack;
+				font-size: 32px;
+				margin: 0.5rem 0 0;
+			}
+		}
+	}
+}
+#loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2rem;
+}
+
+code {
+	font-size: 80%;
+	color: #444;
+	word-wrap: break-word;
+	padding: 4px 5px;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	white-space: nowrap;
+	font-family: "Source Code Pro", monospace;
+}
+
+.two-columns {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+}
+
+.title-line {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	h1 {
+		margin: 0;
+	}
+}
+
+.helper-text {
+	font-size: 12px;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	background: #fff1e1;
+	border-radius: 5px;
+}
+body.dark-mode .helper-text {
+	background: #431;
+	color: $yellow;
+}
+
+.editable .editable-field {
+	&:hover,
+	&:focus {
+		box-shadow: inset 0 0 0 2px $yellow;
+		background: $yellow_light;
+		border-radius: 5px;
+		position: relative;
+		overflow: visible;
+		cursor: pointer;
+		&:after {
+			content: "Edit";
+			position: absolute;
+			right: calc(50% - 30px);
+			left: calc(50% - 30px);
+			min-width: 60px;
+			margin: 0 auto;
+			top: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 14px;
+			z-index: 1;
+			background: $yellow;
+			height: 28px;
+			border-radius: 0 0 5px 5px;
+			cursor: pointer;
+			color: #2e2e2e;
+			font-weight: 600;
+			font-family: "Poppins", sans-serif;
+		}
+	}
+}
+
+.mobile-close-btn {
+	display: none;
+}
+
+nav.section-nav {
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	&.editor > section {
+		padding: 0 0 1.25rem 2rem;
+	}
+	> section {
+		padding: 1.25rem 0 1.25rem 2rem;
+		+ section {
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+		}
+		> a {
+			font-family: Roboto;
+			text-decoration: none;
+			display: block;
+			line-height: 40px;
+			svg {
+				margin-right: 1rem;
+				width: 20px;
+			}
+			&:not(:first-child) {
+				color: rgba(0, 0, 0, 0.4);
+			}
+		}
+		> header {
+			padding: 2rem 0;
+			button {
+				color: white;
+				padding-right: 1.5rem;
+			}
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			li {
+				border-left: 4px solid rgba(0, 0, 0, 0.1);
+				padding: 0.5rem 1rem;
+				color: rgba(0, 0, 0, 0.5);
+				cursor: pointer;
+				font-size: 14px;
+			}
+			li:hover {
+				border-color: rgba(0, 0, 0, 0.5);
+				color: rgba(0, 0, 0, 0.75);
+				background: rgba(0, 0, 0, 0.1);
+			}
+			li.selected {
+				// border-color: #5af;
+				// background: #cef;
+				// color: #17b;
+				border-color: $accent;
+				color: $accent;
+				background: $primary_light;
+			}
+		}
+	}
+	> section {
+		height: calc(100vh - 197px);
+		overflow: auto;
+	}
+}
+
+body.dark-mode nav.section-nav {
+	border-color: $lighten_10;
+	ul {
+		li {
+			border-left: 4px solid rgba(255, 255, 255, 0.1);
+			color: rgba(255, 255, 255, 0.5);
+			transition: 0.2s;
+		}
+		li:hover {
+			border-color: $lighten_33;
+			background: $lighten_05;
+			color: rgba(255, 255, 255, 0.75);
+		}
+		li.selected {
+			border-color: $accent;
+			background: $primary_30;
+			color: $lighten_87;
+		}
+	}
+}
+
+body.dark-mode {
+	background: $dm_background_gradient;
+	color: $lighten_50;
+	a {
+		color: $dm_text_primary_lightened;
+	}
+	h1 {
+		color: $lighten_87;
+	}
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $lighten_75;
+	}
+	code {
+		color: $lighten_75;
+		background: $lighten_10;
+	}
+
+	.app > main > section > header,
+	.app > main > div > section > header {
+		border-bottom-color: $lighten_10;
+		h1 {
+			color: $lighten_87;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+.breadcrumbs {
+	background: rgba(0, 0, 0, 0.03);
+	padding: 0.5rem 2rem;
+	font-size: 12px;
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		gap: 1rem;
+        align-items: center;
+        svg {
+            font-size: 8px;
+            opacity: 0.75;
+        }
+        a {
+            opacity: 0.75;
+            &:hover {
+                opacity: 1;
+            }
+        }
+	}
+}
+body.dark-mode .breadcrumbs {
+    background: none;
+    box-shadow: inset 0 1px rgba(255,255,255,0.1), inset 0 -1px rgba(255,255,255,0.1);
+}

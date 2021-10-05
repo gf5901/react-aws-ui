@@ -1,0 +1,47 @@
+@import "../palette.scss";
+
+@media only screen and (max-width: 768px) {
+	.app > main {
+		display: block;
+		height: calc(100vh - 120px);
+		overflow-y: auto;
+		> section {
+			> header {
+				flex-direction: column;
+				gap: 1rem;
+				align-items: flex-start;
+			}
+			> div {
+				font-size: 16px;
+				text-align: center;
+			}
+			> a {
+				margin-top: 2rem;
+			}
+		}
+	}
+	.app > .nav .right-side {
+		background: #5656b8;
+		padding-right: 0.5rem;
+	}
+	.title-line {
+		flex-direction: column;
+		align-items: flex-start;
+		h1 {
+			font-size: 24px;
+		}
+	}
+	.app header > .actions button {
+		position: absolute;
+		bottom: 5rem;
+		z-index: 1;
+		right: 1rem;
+	}
+	.contact-view {
+		height: calc(100vh - 120px);
+		overflow-y: auto;
+		> div {
+			padding: 2.5rem;
+		}
+	}
+}
