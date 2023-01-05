@@ -12,7 +12,13 @@ You know exactly what the code does. Calls are made directly to the AWS SDK.
 
 ### 3. No need to log in to AWS
 
+I'm tired of having to MFA and log in every day to multiple AWS accounts.
+
 ### 4. Fast loading and caching
+
+### 5. Secure
+
+No calls to any other servers. All logic is done client side using AWS SDK.
 
 
 ## Installation

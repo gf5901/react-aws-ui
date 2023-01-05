@@ -4,15 +4,24 @@ import { ResourceGroupsTaggingAPI } from "@aws-sdk/client-resource-groups-taggin
 export const SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
 export const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID;
 
-const CONFIGURATION = {
-	region: "us-west-2",
+export type Region = "us-west-2" | "us-west-1" | "us-east-1" | "us-east-2";
+export const REGIONS: Region[] = [
+	"us-west-2",
+	"us-west-1",
+	"us-east-1",
+	"us-east-2",
+];
+export const REGION_OPTIONS = REGIONS.map((r) => ({ label: r, value: r }));
+
+const createConfiguration = (region: Region) => ({
+	region,
 	credentials: {
 		secretAccessKey: SECRET_ACCESS_KEY,
 		accessKeyId: ACCESS_KEY_ID,
 	},
-};
+});
 
-export const LAMBDA = new Lambda(CONFIGURATION);
-export const RESOURCE_GROUPS_TAGGING_API = new ResourceGroupsTaggingAPI(
-	CONFIGURATION
-);
+export const createLambda = (region: Region) =>
+	new Lambda(createConfiguration(region));
+export const createResourcesGroupsTaggingAPI = (region: Region) =>
+	new ResourceGroupsTaggingAPI(createConfiguration(region));

@@ -8,7 +8,7 @@ const SET_DARK_MODE = "app/1";
 export const init = () => async (dispatch: any) => {
 	try {
 		// load services
-		dispatch(loadLambdas());
+		dispatch(loadLambdas({ region: "us-west-1" }));
 	} catch (e) {
 		console.error(e);
 	}
